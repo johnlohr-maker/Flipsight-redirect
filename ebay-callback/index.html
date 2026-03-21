@@ -5,26 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Connecting eBay...</title>
 </head>
-<body style="font-family: system-ui; text-align:center; padding-top:50px;">
-<h2>Connecting eBay...</h2>
-<p>Redirecting, please wait...</p>
-
+<body>
 <script>
-  (function () {
-    var qs = window.location.search;
-
-    var backend = "https://p_npd6ex2cs9mexx0fy3awr.rork.live/api/ebay/callback";
-
-    console.log("Query string:", qs);
-
-    if (!qs || qs.indexOf("code=") === -1) {
-      document.body.innerHTML = "<h2>Missing code from eBay</h2>";
-      return;
-    }
-
-    window.location.replace(backend + qs);
-  })();
+  const backend = "https://p_npd6ex2cs9mexx0fy3awr.rork.live/api/ebay/callback"; 
+  const query = window.location.search || "";
+  console.log("Redirecting to backend:", backend + query);
+  window.location.replace(backend + query);
 </script>
 
+<p style="color:white; text-align:center; margin-top:40px;">
+  If you're seeing this text, the redirect script did NOT run.
+</p>
 </body>
 </html>
